@@ -15,7 +15,7 @@ resnet.fc=nn.Sequential(
     nn.Linear(512,4)
 )
 idx_class={0: 'glioma', 1: 'meningioma', 2: 'no_tumor', 3: 'pituitary'}
-state_dict=torch.load("./resnet-92.pth")
+state_dict=torch.load("./resnet-92.pth",map_location=torch.device("cpu"))
 resnet.load_state_dict(state_dict=state_dict)
 resnet.eval()
 if file is not None:
